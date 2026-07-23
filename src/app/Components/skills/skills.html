@@ -1,0 +1,51 @@
+<section id="skills" class="py-20 bg-white dark:bg-gray-900 transition-colors">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="section-title">Compétences</h2>
+    <p class="section-subtitle text-gray-600 dark:text-gray-300">
+      Au fil de mes projets en tant que développeur, j'ai acquis un ensemble de compétences
+      techniques solides allant du front-end au back-end, avec une attention particulière à la
+      qualité, l'automatisation et l'expérience utilisateur.
+    </p>
+
+    <!-- Skills by category -->
+    <div class="space-y-12">
+      @for (category of skillCategories; track $index) {
+        <div>
+          <h3 class="text-2xl font-bold text-primary dark:text-orange-400 mb-6 capitalize">
+            {{ category }}
+          </h3>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            @for (skill of service.skills$ | async; track skill.id) {
+              <div
+                class="card text-center hover:bg-secondary dark:hover:bg-orange-500 hover:text-white transition-all"
+              >
+                @if (skill.icon) {
+                  <div class="text-4xl mb-3">
+                    {{ skill.icon }}
+                  </div>
+                }
+                <h4 class="font-semibold">{{ skill.name }}</h4>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Soft Skills -->
+    <div class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
+      <h3 class="text-2xl font-bold text-primary dark:text-orange-400 mb-6">
+        Compétences transversales
+      </h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        @for (skill of service.softSkills$ | async; track $index) {
+          <div class="card text-center">
+            <h4 class="font-semibold text-primary dark:text-orange-400">
+              {{ skill.name }}
+            </h4>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

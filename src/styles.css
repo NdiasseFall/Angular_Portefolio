@@ -1,3 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+@theme {
+  --color-primary: #ff6b35;
+  --color-secondary: #f7931e;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+  .section-title {
+    @apply text-3xl font-bold text-orange-500 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg mb-12 max-w-3xl;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm dark:shadow-md border border-gray-200 dark:border-gray-700;
+  }
+
+  .badge {
+    @apply px-3 py-1 rounded-full text-sm font-medium;
+  }
+}
+/* Smooth transitions for dark mode */
+html {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Ensure dark mode class takes precedence */
+html.dark {
+  @apply bg-gray-900 text-gray-100;
+}

@@ -1,0 +1,109 @@
+﻿node.exe : npm warn Unknown env config "devdir". This will stop working in the next major version of npm.
+Au caractère Ligne:1 : 1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm warn Unknow...version of npm.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+> portfolio@0.0.0 test
+> ng test --watch=false
+
+> Building...
+ÔêÜ Building...
+Initial chunk files                          | Names                                     |  Raw size
+styles.css                                   | styles                                    |  27.67 kB | 
+chunk-EZ5ZHBD5.js                            | -                                         |  11.37 kB | 
+chunk-IZW2DFFS.js                            | -                                         |  10.34 kB | 
+chunk-IN3OYFZP.js                            | -                                         |  10.30 kB | 
+chunk-PTC4ED6P.js                            | -                                         |   9.09 kB | 
+chunk-2MXZQN4W.js                            | -                                         |   7.98 kB | 
+chunk-5EFGX2L5.js                            | -                                         |   7.71 kB | 
+chunk-UBF7BHNV.js                            | -                                         |   6.50 kB | 
+chunk-FY3RQEM6.js                            | -                                         |   6.41 kB | 
+chunk-CGZBV6BD.js                            | -                                         |   4.07 kB | 
+spec-app-app.js                              | spec-app-app                              |   2.80 kB | 
+chunk-RD2KBMXT.js                            | -                                         |   1.82 kB | 
+spec-app-services-theme.service.js           | spec-app-services-theme.service           |   1.25 kB | 
+init-testbed.js                              | init-testbed                              |   1.21 kB | 
+spec-app-portfolio.js                        | spec-app-portfolio                        |   1.03 kB | 
+vitest-mock-patch.js                         | vitest-mock-patch                         | 969 bytes | 
+spec-app-Components-experience-experience.js | spec-app-Components-experience-experience | 681 bytes | 
+spec-app-Components-formation-formation.js   | spec-app-Components-formation-formation   | 673 bytes | 
+spec-app-Components-header-header.js         | spec-app-Components-header-header         | 649 bytes | 
+spec-app-Components-skills-skills.js         | spec-app-Components-skills-skills         | 649 bytes | 
+spec-app-Components-about-about.js           | spec-app-Components-about-about           | 641 bytes | 
+spec-app-Components-hero-hero.js             | spec-app-Components-hero-hero             | 633 bytes | 
+spec-app-Components-footer-footer.js         | spec-app-Components-footer-footer         | 619 bytes | 
+spec-app-services-portfolio.js               | spec-app-services-portfolio               | 456 bytes | 
+
+                                             | Initial total                             | 115.50 kB
+
+Application bundle generation complete. [9.634 seconds] - 2026-07-23T12:21:34.584Z
+
+
+ RUN  v4.1.7 C:/Users/fall/OneDrive/Bureau/PROJETS/portfolio
+
+ ÔØ» |portfolio| src/app/services/theme.service.spec.ts (5 tests | 5 failed) 172ms
+     ├ù should be created 102ms
+     ├ù should toggle theme 21ms
+     ├ù should add dark class to document when dark mode is enabled 12ms
+     ├ù should remove dark class from document when dark mode is disabled 13ms
+     ├ù should persist theme to localStorage 18ms
+ ÔØ» |portfolio| src/app/Components/header/header.spec.ts (1 test | 1 failed) 195ms
+     ├ù should create 186ms
+ ÔØ» |portfolio| src/app/Components/hero/hero.spec.ts (1 test | 1 failed) 104ms
+     ├ù should create 104ms
+ ÔØ» |portfolio| src/app/app.spec.ts (2 tests | 2 failed) 164ms
+     ├ù should create the app 139ms
+     ├ù should render title 14ms
+
+ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ» Failed Tests 9 ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»
+
+ FAIL  |portfolio| src/app/app.spec.ts > App > should create the app
+ FAIL  |portfolio| src/app/app.spec.ts > App > should render title
+ FAIL  |portfolio| src/app/Components/header/header.spec.ts > Header > should create
+ FAIL  |portfolio| src/app/Components/hero/hero.spec.ts > Hero > should create
+TypeError: window.matchMedia is not a function
+ ÔØ» _ThemeService.getInitialTheme src/app/services/theme.service.ts:29:34
+ ÔØ» _ThemeService.<instance_members_initializer> src/app/services/theme.service.ts:7:24
+ ÔØ» new _ThemeService src/app/services/theme.service.ts:9:3
+ ÔØ» Object.ThemeService_Factory [as factory] chunk-RD2KBMXT.js:49:12
+ ÔØ» factory ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/di/r3_injector.ts:535:34
+ ÔØ» callback ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/render3/debug/injector_profiler.ts:387:4
+ ÔØ» runInInjectorProfilerContext 
+../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/di/r3_injector.ts:533:10
+ ÔØ» hydrate ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/di/r3_injector.ts:370:22
+ ÔØ» get ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/render3/chained_injector.ts:43:31
+ ÔØ» get ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/render3/di.ts:426:63
+
+ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»[1/9]ÔÄ»
+
+ FAIL  |portfolio| src/app/services/theme.service.spec.ts > ThemeService > should be created
+ FAIL  |portfolio| src/app/services/theme.service.spec.ts > ThemeService > should toggle theme
+ FAIL  |portfolio| src/app/services/theme.service.spec.ts > ThemeService > should add dark class to document when dark 
+mode is enabled
+ FAIL  |portfolio| src/app/services/theme.service.spec.ts > ThemeService > should remove dark class from document when 
+dark mode is disabled
+ FAIL  |portfolio| src/app/services/theme.service.spec.ts > ThemeService > should persist theme to localStorage
+TypeError: window.matchMedia is not a function
+ ÔØ» _ThemeService.getInitialTheme src/app/services/theme.service.ts:29:34
+ ÔØ» _ThemeService.<instance_members_initializer> src/app/services/theme.service.ts:7:24
+ ÔØ» new _ThemeService src/app/services/theme.service.ts:9:3
+ ÔØ» Object.ThemeService_Factory [as factory] chunk-RD2KBMXT.js:49:12
+ ÔØ» factory ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/di/r3_injector.ts:535:34
+ ÔØ» callback ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/render3/debug/injector_profiler.ts:387:4
+ ÔØ» runInInjectorProfilerContext 
+../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/di/r3_injector.ts:533:10
+ ÔØ» hydrate ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/src/di/r3_injector.ts:370:22
+ ÔØ» get ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/testing/src/test_bed.ts:606:47
+ ÔØ» inject ../darwin_arm64-fastbuild-ST-fdfa778d11ba/bin/packages/core/testing/src/test_bed.ts:398:32
+
+ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»[2/9]ÔÄ»
+
+
+ Test Files  4 failed | 7 passed (11)
+      Tests  9 failed | 7 passed (16)
+   Start at  12:21:36
+   Duration  14.84s (transform 3.68s, setup 7.50s, import 3.25s, tests 1.84s, environment 67.60s)
+

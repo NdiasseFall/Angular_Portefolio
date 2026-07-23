@@ -1,0 +1,93 @@
+<section id="about" class="py-20 bg-white dark:bg-gray-900 transition-colors">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="section-title text-3xl font-bold text-orange-500">À propos</h2>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Content -->
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Ndiasse Fall</h3>
+        <h4 class="text-xl text-gray-900 dark:text-white font-semibold mb-6">
+          Concepteur et développeur d'applications web & mobile Full Stack
+        </h4>
+
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+          Passionné d'informatique depuis mon plus jeune âge et aujourd'hui développeur web et
+          mobile, je conçois des solutions modernes, performantes et adaptées aux besoins réels.
+          Curieux et toujours en quête de nouveaux défis, je m'engage avec rigueur dans des projets
+          concrets et innovants.
+        </p>
+
+        <!-- Tools section -->
+        <div class="mt-8">
+          <h4 class="font-bold text-orange-500 mb-4">Outils principaux</h4>
+          <div class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg">
+              <span class="text-2xl">☁️</span>
+              <span class="font-semibold dark:text-gray-900">Microsoft 365</span>
+            </div>
+            <div class="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg">
+              <span class="text-2xl">🔤</span>
+              <span class="font-semibold dark:text-gray-900">Google Workspace</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side - Stats and info -->
+      <div>
+        <div
+          class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg border border-gray-200 dark:border-gray-700"
+        >
+          <h4 class="text-xl font-bold text-primary text-orange-500 mb-6">Expertise en chiffres</h4>
+
+          <div class="space-y-6">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-semibold text-gray-900 dark:text-white">Expérience</span>
+                <span class="text-gray-900 dark:text-white font-bold">4+</span>
+              </div>
+              <div class="w-full bg-gray-300 rounded-full h-2">
+                <div class="bg-orange-500 h-2 rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-semibold text-gray-900 dark:text-white">Projets complétés</span>
+                <span class="text-gray-900 dark:text-white font-bold">15+</span>
+              </div>
+              <div class="w-full bg-gray-300 rounded-full h-2">
+                <div class="bg-orange-500 h-2 rounded-full" style="width: 75%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-semibold text-gray-900 dark:text-white"
+                  >Technologies maîtrisées</span
+                >
+                <span class="text-gray-900 dark:text-white font-bold">25+</span>
+              </div>
+              <div class="w-full bg-gray-300 rounded-full h-2">
+                <div class="bg-orange-500 h-2 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Langues -->
+          <div class="mt-8 pt-8 border-t border-gray-300 dark:border-gray-700">
+            <h5 class="font-semibold text-orange-500 mb-4">Langues</h5>
+            <div class="space-y-3">
+              @for (lang of service.languages$ | async; track lang.id) {
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-900 dark:text-white">{{ lang.name }}</span>
+                  <span class="text-orange-500 font-semibold text-sm">{{ lang.level }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
