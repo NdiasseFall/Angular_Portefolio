@@ -2,26 +2,80 @@
   class="sticky top-0 bg-white dark:bg-gray-900 shadow-sm dark:shadow-lg z-50 transition-colors"
 >
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <div class="text-2xl font-bold text-orange-500">NDIASSE FALL</div>
-    <ul class="hidden md:flex space-x-8 text-gray-900 dark:text-white">
-      <li>
-        <a href="#home" class="hover:text-orange-500 transition">Accueil</a>
-      </li>
-      <li>
-        <a href="#about" class="hover:text-orange-500 transition">À propos</a>
-      </li>
-      <li>
-        <a href="#formation" class="hover:text-orange-500 transition">Formation</a>
-      </li>
-      <li>
-        <a href="#skills" class="hover:text-orange-500 transition">Compétences</a>
-      </li>
-      <li>
-        <a href="#experience" class="hover:text-orange-500 transition">Expérience</a>
-      </li>
+    <div class="text-xl sm:text-2xl font-bold text-orange-500 truncate">NDIASSE FALL</div>
+
+    <ul class="hidden lg:flex space-x-8 text-gray-900 dark:text-white">
+      @for (link of navLinks; track link.href) {
+        <li>
+          <a [routerLink]="link.href" class="hover:text-orange-500 transition">{{ link.label }}</a>
+        </li>
+      }
     </ul>
-    <div class="flex items-center gap-4">
+
+    <div class="flex items-center gap-2 sm:gap-4">
       <app-theme-toggle></app-theme-toggle>
+
+      <button
+        type="button"
+        class="lg:hidden p-2 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-menu"
+        [attr.aria-label]="menuOpen() ? 'Fermer le menu de navigation' : 'Ouvrir le menu de navigation'"
+      >
+        @if (menuOpen()) {
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        } @else {
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        }
+      </button>
     </div>
   </nav>
+
+  <div
+    id="mobile-menu"
+    class="mobile-menu lg:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
+    [class.mobile-menu-open]="menuOpen()"
+    [attr.aria-hidden]="!menuOpen()"
+  >
+    <ul class="px-4 sm:px-6 py-2 space-y-1">
+      @for (link of navLinks; track link.href) {
+        <li>
+          <a
+            [routerLink]="link.href"
+            class="block py-3 px-2 text-gray-900 dark:text-white hover:text-orange-500 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            (click)="closeMenu()"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
 </header>

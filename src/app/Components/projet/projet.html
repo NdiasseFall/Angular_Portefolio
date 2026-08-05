@@ -1,0 +1,72 @@
+<section id="projets" class="py-20 bg-white dark:bg-gray-900 transition-colors">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 appScrollReveal class="section-title mb-20">PROJETS ACADÉMIQUES & PERSONNELS</h2>
+ 
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+      @for (pro of service.projets$ | async; track pro.id) {
+        <div
+          appScrollReveal
+          revealAnimation="fade-up"
+          [revealDelay]="$index * 120"
+          class="card w-full max-w-md mx-auto border-l-4 border-secondary dark:border-orange-400"
+        >
+          <div class="mb-4">
+            <img class="w-full h-48 object-cover rounded-md" src="{{ pro.image }}" alt="{{ pro.title }}" />
+            <h3 class="text-xl font-bold text-primary dark:text-orange-400 mt-3">
+              {{ pro.title }}
+            </h3>
+            <p class="text-secondary dark:text-orange-300 font-semibold">
+              {{ pro.description }}
+            </p>
+          </div>
+ 
+          <!-- <p class="text-gray-700 dark:text-gray-200 mb-4">{{ exp.description }}</p> -->
+ 
+          <!-- Missions -->
+          <div class="mb-4">
+            <h4 class="font-semibold text-primary dark:text-orange-400 mb-2">
+              Missions principales
+            </h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-300">
+              @for (mission of pro.missions; track $index) {
+                <li>
+                  {{ mission }}
+                </li>
+              }
+            </ul>
+          </div>
+ 
+          <!-- Technologies -->
+          <div class="mb-4">
+            <h4 class="font-semibold text-primary dark:text-orange-400 mb-2">Technologies</h4>
+            <div class="flex flex-wrap gap-2">
+              @for (tech of pro.technologies; track $index) {
+                <span class="badge bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
+                  {{ tech }}
+                </span>
+              }
+            </div>
+          </div>
+ 
+          <!-- liens -->
+          @if (pro.liens) {
+            <div class="pt-4 border-t border-gray-200">
+              <p class="text-sm text-gray-600">
+                <strong>Liens:</strong>
+                @if (pro.liens.github) {
+                  (<a [href]="pro.liens.github" class="text-secondary hover:underline">GitHub</a>)
+                }
+                @if (pro.liens.figma) {
+                  (<a [href]="pro.liens.figma" class="text-secondary hover:underline">Figma</a>)
+                }
+                @if (pro.liens.site) {
+                  (<a [href]="pro.liens.site" class="text-secondary hover:underline">Voir Site</a>)
+                }
+              </p>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

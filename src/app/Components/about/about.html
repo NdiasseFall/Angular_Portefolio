@@ -1,10 +1,10 @@
 <section id="about" class="py-20 bg-white dark:bg-gray-900 transition-colors">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="section-title text-3xl font-bold text-orange-500">À propos</h2>
+    <h2 appScrollReveal class="section-title text-3xl font-bold text-orange-500">À PROPOS</h2>
 
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <!-- Content -->
-      <div>
+      <div appScrollReveal revealAnimation="fade-left">
         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Ndiasse Fall</h3>
         <h4 class="text-xl text-gray-900 dark:text-white font-semibold mb-6">
           Concepteur et développeur d'applications web & mobile Full Stack
@@ -22,11 +22,15 @@
           <h4 class="font-bold text-orange-500 mb-4">Outils principaux</h4>
           <div class="flex flex-wrap gap-4">
             <div class="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg">
-              <span class="text-2xl">☁️</span>
+              <span class="text-2xl">
+                <img class="w-6" src="images/microsoft.svg" alt="microsoft icon" />
+              </span>
               <span class="font-semibold dark:text-gray-900">Microsoft 365</span>
             </div>
             <div class="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg">
-              <span class="text-2xl">🔤</span>
+              <span class="text-2xl">
+                <img class="w-40" src="images/google-workspace.svg" alt="google workspace icon" />
+              </span>
               <span class="font-semibold dark:text-gray-900">Google Workspace</span>
             </div>
           </div>
@@ -34,20 +38,20 @@
       </div>
 
       <!-- Right side - Stats and info -->
-      <div>
+      <div appScrollReveal revealAnimation="fade-right" [revealDelay]="150">
         <div
           class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg border border-gray-200 dark:border-gray-700"
         >
-          <h4 class="text-xl font-bold text-primary text-orange-500 mb-6">Expertise en chiffres</h4>
+          <h4 class="text-xl font-bold text-orange-500 mb-6">Expertise en chiffres</h4>
 
           <div class="space-y-6">
             <div>
               <div class="flex justify-between mb-2">
-                <span class="font-semibold text-gray-900 dark:text-white">Expérience</span>
-                <span class="text-gray-900 dark:text-white font-bold">4+</span>
+                <span class="font-semibold text-gray-900 dark:text-white">Engagements</span>
+                <span class="text-gray-900 dark:text-white font-bold">3</span>
               </div>
               <div class="w-full bg-gray-300 rounded-full h-2">
-                <div class="bg-orange-500 h-2 rounded-full" style="width: 80%"></div>
+                <div class="bg-orange-500 h-2 rounded-full" style="width: 70%"></div>
               </div>
             </div>
 

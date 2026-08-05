@@ -1,0 +1,118 @@
+<section id="contact" class="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-primary dark:text-white mb-8">
+      Me contacter
+    </h2>
+
+    <form
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      class="space-y-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md dark:shadow-lg"
+    >
+      <div class="grid grid-cols-1 gap-4">
+        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Nom
+        </label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-md"
+          [class.border-red-500]="isFieldInvalid('name')"
+          [class.focus:border-red-500]="isFieldInvalid('name')"
+          [class.focus:ring-red-500]="isFieldInvalid('name')"
+          [attr.aria-invalid]="isFieldInvalid('name').toString()"
+          [attr.aria-describedb]="isFieldInvalid('name') ? 'name-error' : undefined"
+        />
+        @if (isFieldInvalid('name') && (name?.touched || name?.dirty)) {
+          <div class="mt-1 text-sm text-red-600 dark:text-red-400" id="name-error">
+            {{ getErrorMessage('name') }}
+          </div>
+        }
+      </div>
+
+      <div class="grid grid-cols-1 gap-4">
+        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-md"
+          [class.border-red-500]="isFieldInvalid('email')"
+          [class.focus:border-red-500]="isFieldInvalid('email')"
+          [class.focus:ring-red-500]="isFieldInvalid('email')"
+          [attr.aria-invalid]="isFieldInvalid('email').toString()"
+          [attr.aria-describedb]="isFieldInvalid('email') ? 'email-error' : undefined"
+        />
+        @if (isFieldInvalid('email') && (email?.touched || email?.dirty)) {
+          <div class="mt-1 text-sm text-red-600 dark:text-red-400" id="email-error">
+            {{ getErrorMessage('email') }}
+          </div>
+        }
+      </div>
+
+      <div class="grid grid-cols-1 gap-4">
+        <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Sujet
+        </label>
+        <input
+          type="text"
+          id="subject"
+          formControlName="subject"
+          class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-md"
+          [class.border-red-500]="isFieldInvalid('subject')"
+          [class.focus:border-red-500]="isFieldInvalid('subject')"
+          [class.focus:ring-red-500]="isFieldInvalid('subject')"
+          [attr.aria-invalid]="isFieldInvalid('subject').toString()"
+          [attr.aria-describedb]="isFieldInvalid('subject') ? 'subject-error' : undefined"
+        />
+        @if (isFieldInvalid('subject') && (subject?.touched || subject?.dirty)) {
+          <div class="mt-1 text-sm text-red-600 dark:text-red-400" id="subject-error">
+            {{ getErrorMessage('subject') }}
+          </div>
+        }
+      </div>
+
+      <div class="grid grid-cols-1 gap-4">
+        <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Message
+        </label>
+        <textarea
+          id="message"
+          formControlName="message"
+          rows="5"
+          class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-md"
+          [class.border-red-500]="isFieldInvalid('message')"
+          [class.focus:border-red-500]="isFieldInvalid('message')"
+          [class.focus:ring-red-500]="isFieldInvalid('message')"
+          [attr.aria-invalid]="isFieldInvalid('message').toString()"
+          [attr.aria-describedb]="isFieldInvalid('message') ? 'message-error' : undefined"
+        ></textarea>
+        @if (isFieldInvalid('message') && (message?.touched || message?.dirty)) {
+          <div class="mt-1 text-sm text-red-600 dark:text-red-400" id="message-error">
+            {{ getErrorMessage('message') }}
+          </div>
+        }
+      </div>
+
+      <div class="flex justify-end">
+        <button
+          type="submit"
+          [disabled]="isSubmitting"
+          class="px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-transparent hover:text-orange-500 hover-border hover:border-orange-500 transition-all duration-300 cursor-pointer focus:border-orange-500 focus:ring-orange-500 focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          @if (isSubmitting) {
+            <span class="flex items-center">
+              <span class="mr-2">Envoi en cours...</span>
+              <span class="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>
+            </span>
+          } @else {
+            <span>Envoyer</span>
+          }
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

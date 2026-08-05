@@ -1,16 +1,15 @@
 <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="section-title">Expériences</h2>
-    <p class="section-subtitle text-gray-600 dark:text-gray-300">
-      Plus de 3 ans d'expériences professionnelles concrètes qui m'ont permis de mettre en pratique
-      mes compétences techniques de développeur en travaillant sur des projets d'envergure au
-      Sénégal et à l'international et de contribuer activement à des plateformes web dynamiques et
-      stratégiques.
+    <h2 appScrollReveal class="section-title">LEADERSHIP & EXPÉRIENCE</h2>
+    <p appScrollReveal [revealDelay]="100" class="section-subtitle text-gray-600 dark:text-gray-300">
+      Engagements associatifs et académiques au sein de mon université, où j'apprends le
+      développement web en pratique — en évaluant des projets, en organisant des événements et en
+      contribuant à la vie du club informatique.
     </p>
 
     <div class="space-y-8">
       @for (exp of service.experiences$ | async; track exp.id) {
-        <div class="card border-l-4 border-secondary dark:border-orange-400">
+        <div appScrollReveal revealAnimation="fade-up" [revealDelay]="$index * 120" class="card border-l-4 border-secondary dark:border-orange-400">
           <div class="grid md:grid-cols-4 gap-4 mb-4">
             <div class="md:col-span-2">
               <h3 class="text-xl font-bold text-primary dark:text-orange-400">

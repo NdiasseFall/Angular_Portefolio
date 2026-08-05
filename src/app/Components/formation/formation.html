@@ -1,7 +1,7 @@
 <section class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="section-title text-3xl font-bold text-orange-500 mb-4">Formation</h2>
-    <p class="section-subtitle text-gray-600 dark:text-gray-300 mb-12">
+    <h2 appScrollReveal class="section-title text-3xl font-bold text-orange-500 mb-4">FORMATION</h2>
+    <p appScrollReveal [revealDelay]="100" class="section-subtitle text-gray-600 dark:text-gray-300 mb-12">
       Passionné par le métier de développeur web et mobile, j'ai construit mon parcours autour d'une
       formation approfondie en informatique, enrichie par des certifications pratiques en
       cybersécurité et outils innovants.
@@ -9,7 +9,7 @@
 
     <div class="grid md:grid-cols-2 gap-8">
       <!-- Études -->
-      <div>
+      <div appScrollReveal revealAnimation="fade-left">
         <h3 class="text-2xl font-bold text-orange-500 mb-6">Diplomes</h3>
         <div class="space-y-6">
           @for (formation of service.formations$ | async; track formation.id) {
@@ -38,28 +38,22 @@
       </div>
 
       <!-- Certificats -->
-      <div>
+      <div appScrollReveal revealAnimation="fade-right" [revealDelay]="150">
         <h3 class="text-2xl font-bold text-orange-500 mb-6">Certificats</h3>
         <div class="space-y-4">
           <div class="card">
             <h4 class="font-semibold text-gray-900 dark:text-white">
-              Analyste Junior en Cybersécurité
+              Développement mobile flutter
             </h4>
             <p class="text-sm text-gray-600 dark:text-gray-300">
               Délivré par Force-N - Financé par Mastercard Foundation
             </p>
           </div>
           <div class="card">
-            <h4 class="font-semibold text-gray-900 dark:text-white">WEB3</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-300">Informatique & Internet</p>
-          </div>
-          <div class="card">
-            <h4 class="font-semibold text-gray-900 dark:text-white">Création de contenus & OBS</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-300">Délivré par Force-N</p>
-          </div>
-          <div class="card">
-            <h4 class="font-semibold text-gray-900 dark:text-white">Moodle</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-300">Administration de plateforme LMS</p>
+            <h4 class="font-semibold text-gray-900 dark:text-white">TéléServices</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              Délivré par Force-N - Financé par Mastercard Foundation
+            </p>
           </div>
         </div>
       </div>

@@ -19,21 +19,135 @@
   }
 
   .card {
-    @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm dark:shadow-md border border-gray-200 dark:border-gray-700;
+    @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm dark:shadow-md border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
 
   .badge {
     @apply px-3 py-1 rounded-full text-sm font-medium;
   }
 }
+
 /* Smooth transitions for dark mode */
 html {
   transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+    background-color 0.4s ease,
+    color 0.4s ease,
+    background-image 0.4s ease;
 }
 
 /* Ensure dark mode class takes precedence */
 html.dark {
   @apply bg-gray-900 text-gray-100;
+}
+
+/* Enhanced transitions for cards and interactive elements */
+.card,
+button,
+input,
+textarea,
+select,
+a {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+}
+
+/* Smooth transitions for smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll reveal animations */
+.scroll-reveal {
+  opacity: 0;
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-fade-up {
+  transform: translateY(2rem);
+}
+
+.scroll-reveal-fade-left {
+  transform: translateX(-2rem);
+}
+
+.scroll-reveal-fade-right {
+  transform: translateX(2rem);
+}
+
+.scroll-reveal-fade-in {
+  transform: none;
+}
+
+.scroll-reveal-scale {
+  transform: scale(0.92);
+}
+
+.scroll-reveal-visible {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* Hero entrance animations */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-animate {
+  animation: hero-fade-up 0.8s ease forwards;
+  opacity: 0;
+}
+
+.hero-animate-delay-1 {
+  animation-delay: 0.15s;
+}
+
+.hero-animate-delay-2 {
+  animation-delay: 0.3s;
+}
+
+.hero-animate-delay-3 {
+  animation-delay: 0.45s;
+}
+
+.hero-animate-delay-4 {
+  animation-delay: 0.6s;
+}
+
+.hero-animate-image {
+  animation: hero-fade-in 1s ease 0.4s forwards;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .hero-animate,
+  .hero-animate-image {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }
