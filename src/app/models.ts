@@ -18,6 +18,7 @@ export interface Experience {
 export interface Projet {
   id: string;
   title: string;
+  category?: string;
   image?: string;
   description: string;
   missions: string[];

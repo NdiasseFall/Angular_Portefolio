@@ -1,35 +1,46 @@
-<section class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors">
+<section id="formation" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 appScrollReveal class="section-title text-3xl font-bold text-orange-500 mb-4">FORMATION</h2>
+    <div class="flex items-center gap-3 mb-4" appScrollReveal>
+      <span class="h-px w-8 bg-orange-500"></span>
+      <span class="text-sm font-semibold tracking-wider text-orange-500 uppercase">Parcours Académique</span>
+    </div>
+    <h2 appScrollReveal class="section-title text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+      FORMATION & CERTIFICATIONS
+    </h2>
     <p appScrollReveal [revealDelay]="100" class="section-subtitle text-gray-600 dark:text-gray-300 mb-12">
-      Passionné par le métier de développeur web et mobile, j'ai construit mon parcours autour d'une
-      formation approfondie en informatique, enrichie par des certifications pratiques en
-      cybersécurité et outils innovants.
+      Passionné par le développement d'applications, j'ai consolidé mes bases à travers une formation universitaire rigoureuse en informatique, complétée par des certifications spécialisées.
     </p>
 
     <div class="grid md:grid-cols-2 gap-8">
       <!-- Études -->
       <div appScrollReveal revealAnimation="fade-left">
-        <h3 class="text-2xl font-bold text-orange-500 mb-6">Diplomes</h3>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-950/60 flex items-center justify-center text-orange-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Diplômes</h3>
+        </div>
+
         <div class="space-y-6">
-          @for (formation of service.formations$ | async; track formation.id) {
-            <div class="card border-l-4 border-orange-500 pl-4">
-              <div class="flex justify-between items-start mb-2">
+          @for (degree of service.getDegrees(); track degree.id) {
+            <div class="card border-l-4 border-orange-500 pl-5">
+              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 mb-2">
                 <h4 class="font-bold text-gray-900 dark:text-white text-lg">
-                  {{ formation.title }}
+                  {{ degree.title }}
                 </h4>
-                <span class="text-sm text-orange-500 font-semibold"
-                  >{{ formation.startYear }} – {{ formation.endYear }}</span
-                >
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-100 dark:bg-orange-950/50 text-orange-600 dark:text-orange-400 whitespace-nowrap">
+                  {{ degree.startYear }} – {{ degree.endYear }}
+                </span>
               </div>
               <p class="text-gray-600 dark:text-gray-300 mb-3">
-                {{ formation.institution }}
+                {{ degree.institution }}
               </p>
-              @if (formation.mention) {
-                <span
-                  class="inline-block badge bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
-                >
-                  {{ formation.mention }}
+              @if (degree.mention) {
+                <span class="inline-block badge bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-xs font-semibold">
+                  {{ degree.mention }}
                 </span>
               }
             </div>
@@ -39,22 +50,29 @@
 
       <!-- Certificats -->
       <div appScrollReveal revealAnimation="fade-right" [revealDelay]="150">
-        <h3 class="text-2xl font-bold text-orange-500 mb-6">Certificats</h3>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-950/60 flex items-center justify-center text-orange-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Certificats</h3>
+        </div>
+
         <div class="space-y-4">
-          <div class="card">
-            <h4 class="font-semibold text-gray-900 dark:text-white">
-              Développement mobile flutter
-            </h4>
-            <p class="text-sm text-gray-600 dark:text-gray-300">
-              Délivré par Force-N - Financé par Mastercard Foundation
-            </p>
-          </div>
-          <div class="card">
-            <h4 class="font-semibold text-gray-900 dark:text-white">TéléServices</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-300">
-              Délivré par Force-N - Financé par Mastercard Foundation
-            </p>
-          </div>
+          @for (cert of service.getCertificates(); track cert.id) {
+            <div class="card border-l-4 border-orange-400 dark:border-orange-500 pl-5">
+              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 mb-1">
+                <h4 class="font-semibold text-gray-900 dark:text-white">
+                  {{ cert.title }}
+                </h4>
+                <span class="text-xs text-orange-500 font-semibold">{{ cert.startYear }}</span>
+              </div>
+              <p class="text-sm text-gray-600 dark:text-gray-300">
+                {{ cert.institution }}
+              </p>
+            </div>
+          }
         </div>
       </div>
     </div>

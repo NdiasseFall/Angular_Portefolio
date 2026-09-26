@@ -1,76 +1,88 @@
 <header
-  class="sticky top-0 bg-white dark:bg-gray-900 shadow-sm dark:shadow-lg z-50 transition-colors"
+  class="sticky top-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-xs border-b border-gray-100 dark:border-gray-800/80 z-50 transition-colors"
 >
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <div class="text-xl sm:text-2xl font-bold text-orange-500 truncate">NDIASSE FALL</div>
+    <a
+      href="#home"
+      (click)="scrollToSection($event, 'home')"
+      class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-1.5 group cursor-pointer"
+    >
+      <span class="text-orange-500 group-hover:scale-110 transition-transform">&lt;/&gt;</span>
+      <span class="group-hover:text-orange-500 transition-colors">NDIASSE FALL</span>
+    </a>
 
-    <ul class="hidden lg:flex space-x-8 text-gray-900 dark:text-white">
-      @for (link of navLinks; track link.href) {
+    <!-- Desktop Navigation -->
+    <ul class="hidden lg:flex items-center space-x-1">
+      @for (link of navLinks; track link.id) {
         <li>
-          <a [routerLink]="link.href" class="hover:text-orange-500 transition">{{ link.label }}</a>
+          <a
+            [href]="link.href"
+            (click)="scrollToSection($event, link.id)"
+            class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer"
+            [class.text-orange-500]="activeSection() === link.id"
+            [class.bg-orange-50]="activeSection() === link.id"
+            [class.dark:bg-orange-950/40]="activeSection() === link.id"
+            [class.font-semibold]="activeSection() === link.id"
+            [class.text-gray-700]="activeSection() !== link.id"
+            [class.dark:text-gray-300]="activeSection() !== link.id"
+            [class.hover:text-orange-500]="activeSection() !== link.id"
+            [class.dark:hover:text-orange-400]="activeSection() !== link.id"
+            [class.hover:bg-gray-50]="activeSection() !== link.id"
+            [class.dark:hover:bg-gray-800/50]="activeSection() !== link.id"
+          >
+            {{ link.label }}
+          </a>
         </li>
       }
     </ul>
 
+    <!-- Right Controls -->
     <div class="flex items-center gap-2 sm:gap-4">
       <app-theme-toggle></app-theme-toggle>
 
       <button
         type="button"
-        class="lg:hidden p-2 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        class="lg:hidden p-2 rounded-xl text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
         (click)="toggleMenu()"
         [attr.aria-expanded]="menuOpen()"
         aria-controls="mobile-menu"
         [attr.aria-label]="menuOpen() ? 'Fermer le menu de navigation' : 'Ouvrir le menu de navigation'"
       >
         @if (menuOpen()) {
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         } @else {
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         }
       </button>
     </div>
   </nav>
 
+  <!-- Mobile Drawer -->
   <div
     id="mobile-menu"
-    class="mobile-menu lg:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
+    class="mobile-menu lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md transition-all"
     [class.mobile-menu-open]="menuOpen()"
     [attr.aria-hidden]="!menuOpen()"
   >
-    <ul class="px-4 sm:px-6 py-2 space-y-1">
-      @for (link of navLinks; track link.href) {
+    <ul class="px-4 py-3 space-y-1">
+      @for (link of navLinks; track link.id) {
         <li>
           <a
-            [routerLink]="link.href"
-            class="block py-3 px-2 text-gray-900 dark:text-white hover:text-orange-500 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
-            (click)="closeMenu()"
+            [href]="link.href"
+            (click)="scrollToSection($event, link.id)"
+            class="block py-2.5 px-3 rounded-xl text-base font-medium transition-colors cursor-pointer"
+            [class.bg-orange-50]="activeSection() === link.id"
+            [class.dark:bg-orange-950/40]="activeSection() === link.id"
+            [class.text-orange-500]="activeSection() === link.id"
+            [class.font-semibold]="activeSection() === link.id"
+            [class.text-gray-800]="activeSection() !== link.id"
+            [class.dark:text-gray-200]="activeSection() !== link.id"
+            [class.hover:bg-gray-50]="activeSection() !== link.id"
+            [class.dark:hover:bg-gray-800]="activeSection() !== link.id"
           >
             {{ link.label }}
           </a>

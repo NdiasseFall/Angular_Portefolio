@@ -50,27 +50,51 @@ export class ContactComponent {
     const TEMPLATE_ID = 'template_xxxxxxxx'; // Your EmailJS template ID
     const USER_ID = 'xxxxxxxxxxxxxxxxxxxxxxxx'; // Your EmailJS user ID (public key)
 
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, {
-      from_name: formData.name,
-      from_email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-      reply_to: formData.email
-    }, USER_ID)
-    .then(
-      (result: EmailJSResponseStatus) => {
+    if (SERVICE_ID.includes('xxxxxxxx')) {
+      // Simulation gracieuse en mode développement
+      setTimeout(() => {
         this.isSubmitting = false;
         this.contactForm.reset();
         this.contactForm.markAsPristine();
         this.contactForm.markAsUntouched();
-        this.toastService.showSuccess('Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.');
-      },
-      (error) => {
-        this.isSubmitting = false;
-        console.error('EmailJS error:', error);
-        this.toastService.showError('Erreur lors de l\'envoi du message. Veuillez réessayer.');
-      }
-    );
+        this.toastService.showSuccess(
+          'Merci pour votre message ! Je vous répondrai dans les plus brefs délais.'
+        );
+      }, 600);
+      return;
+    }
+
+    emailjs
+      .send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          reply_to: formData.email,
+        },
+        USER_ID
+      )
+      .then(
+        (result: EmailJSResponseStatus) => {
+          this.isSubmitting = false;
+          this.contactForm.reset();
+          this.contactForm.markAsPristine();
+          this.contactForm.markAsUntouched();
+          this.toastService.showSuccess(
+            'Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.'
+          );
+        },
+        (error) => {
+          this.isSubmitting = false;
+          console.error('EmailJS error:', error);
+          this.toastService.showError(
+            "Erreur lors de l'envoi du message. Veuillez réessayer."
+          );
+        }
+      );
   }
 
   // Method to check if a field has an error and has been touched

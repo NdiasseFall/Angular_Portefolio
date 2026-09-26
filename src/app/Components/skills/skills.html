@@ -1,33 +1,42 @@
-<section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors">
+<section id="skills" class="py-20 bg-white dark:bg-gray-900 transition-colors">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 appScrollReveal class="section-title">COMPÉTENCES</h2>
-    <p appScrollReveal [revealDelay]="100" class="section-subtitle text-gray-600 dark:text-gray-300">
-      Au fil de mes projets en tant que développeur, j'ai acquis un ensemble de compétences
-      techniques solides allant du front-end au back-end, avec une attention particulière à la
-      qualité, l'automatisation et l'expérience utilisateur.
+    <div class="flex items-center gap-3 mb-4" appScrollReveal>
+      <span class="h-px w-8 bg-orange-500"></span>
+      <span class="text-sm font-semibold tracking-wider text-orange-500 uppercase">Expertise Technique</span>
+    </div>
+    <h2 appScrollReveal class="section-title text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+      COMPÉTENCES & STACK
+    </h2>
+    <p appScrollReveal [revealDelay]="100" class="section-subtitle text-gray-600 dark:text-gray-300 mb-12">
+      Développeur full-stack passionné, je combine des technologies web modernes et des architectures robustes pour concevoir des applications fluides, maintenables et ergonomiques.
     </p>
 
     <!-- Skills by category -->
     <div class="space-y-12">
       @for (category of skillCategories; track $index) {
         <div appScrollReveal [revealDelay]="$index * 100">
-          <h3 class="text-2xl font-bold text-primary dark:text-orange-400 mb-6 capitalize">
-            {{ category }}
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            @for (skill of getSkillsByCategory(category) ; track skill.id) {
+          <div class="flex items-center gap-2 mb-6">
+            <span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+            <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">
+              {{ category }}
+            </h3>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            @for (skill of getSkillsByCategory(category); track skill.id) {
               <div
                 appScrollReveal
                 revealAnimation="scale"
-                [revealDelay]="$index * 60"
-                class="card text-center hover:bg-secondary dark:hover:bg-orange-500 hover:text-white transition-all"
+                [revealDelay]="$index * 50"
+                class="group relative bg-gray-50 dark:bg-gray-800/80 p-5 rounded-xl border border-gray-200 dark:border-gray-700/70 hover:border-orange-500/80 dark:hover:border-orange-500/80 hover:shadow-lg transition-all duration-300 text-center flex flex-col items-center justify-center cursor-default"
               >
                 @if (skill.icon) {
-                  <div class="text-4xl flex justify-center items-center mb-3">
-                    <img [src]="skill.icon" class="w-12 text-center" alt="{{ skill.name }}" />
+                  <div class="w-14 h-14 flex items-center justify-center mb-3 bg-white dark:bg-gray-900/60 rounded-xl p-2.5 shadow-xs border border-gray-100 dark:border-gray-700/50 group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
+                    <img [src]="skill.icon" class="w-8 h-8 object-contain" [alt]="skill.name" />
                   </div>
                 }
-                <h4 class="font-semibold">{{ skill.name }}</h4>
+                <h4 class="font-medium text-gray-800 dark:text-gray-200 text-sm group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors">
+                  {{ skill.name }}
+                </h4>
               </div>
             }
           </div>
@@ -36,14 +45,22 @@
     </div>
 
     <!-- Soft Skills -->
-    <div appScrollReveal class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
-      <h3 class="text-2xl font-bold text-primary dark:text-orange-400 mb-6">
-        Compétences transversales
-      </h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div appScrollReveal class="mt-16 pt-10 border-t border-gray-200 dark:border-gray-800">
+      <div class="flex items-center gap-2 mb-6">
+        <span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+        <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">
+          Compétences transversales & Savoir-être
+        </h3>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
         @for (skill of service.softSkills$ | async; track $index) {
-          <div appScrollReveal revealAnimation="scale" [revealDelay]="$index * 80" class="card text-center">
-            <h4 class="font-semibold text-primary dark:text-orange-400">
+          <div
+            appScrollReveal
+            revealAnimation="scale"
+            [revealDelay]="$index * 70"
+            class="card p-4 text-center border-l-4 border-orange-500 bg-gray-50 dark:bg-gray-800/70"
+          >
+            <h4 class="font-semibold text-gray-800 dark:text-gray-200 text-sm">
               {{ skill.name }}
             </h4>
           </div>

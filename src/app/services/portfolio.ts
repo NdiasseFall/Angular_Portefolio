@@ -69,6 +69,7 @@ export class Portfolio {
     {
       id: 'pro-1',
       title: 'ERP Scolaire',
+      category: 'Web',
       description: 'Projet de Fin d’Études',
       image: 'images/PFE.png',
       missions: [
@@ -88,6 +89,7 @@ export class Portfolio {
     {
       id: 'pro-2',
       title: 'CV Facile',
+      category: 'Web',
       description: 'Plateforme SaaS de génération de CVs en ligne',
       image: 'images/CV_facile.png',
       missions: [
@@ -106,6 +108,7 @@ export class Portfolio {
     {
       id: 'pro-4',
       title: 'Sen Stock',
+      category: 'Web',
       description: 'Plateforme Gestion de stock',
       image: 'images/PFE.png',
       missions: [
@@ -120,6 +123,7 @@ export class Portfolio {
     {
       id: 'pro-3',
       title: 'Alloh Learning',
+      category: 'UI/UX',
       description: 'Design Plateforme E-learning inclusive (Figma, UX)',
       image: 'images/Alloh.png',
       missions: [
@@ -144,46 +148,125 @@ export class Portfolio {
       endYear: 2026,
       mention: 'mention bien',
     },
+    {
+      id: 'cert-1',
+      type: 'certificate',
+      title: 'Développement mobile Flutter',
+      institution: 'Force-N — Financé par Mastercard Foundation',
+      startYear: 2024,
+      endYear: 2024,
+    },
+    {
+      id: 'cert-2',
+      type: 'certificate',
+      title: 'TéléServices',
+      institution: 'Force-N — Financé par Mastercard Foundation',
+      startYear: 2024,
+      endYear: 2024,
+    },
   ];
 
   private skills: Skill[] = [
     // Front-end
     {
+      id: 'skill-7',
+      category: 'Front-End',
+      name: 'Angular',
+      icon: 'images/angular.svg',
+    },
+    {
+      id: 'skill-6',
+      category: 'Front-End',
+      name: 'React JS',
+      icon: 'images/react.svg',
+    },
+    {
       id: 'skill-1',
-      category: 'Outils & Languages',
+      category: 'Front-End',
       name: 'JavaScript',
       icon: 'images/javascript.svg',
     },
-    { id: 'skill-2', category: 'Outils & Languages', name: 'PHP', icon: 'images/php.svg' },
-    { id: 'skill-3', category: 'Outils & Languages', name: 'Java', icon: 'images/java.svg' },
-    {
-      id: 'skill-4',
-      category: 'Outils & Languages',
-      name: 'Bootstrap',
-      icon: 'images/bootstrap.svg',
-    },
     {
       id: 'skill-5',
-      category: 'Outils & Languages',
+      category: 'Front-End',
       name: 'Tailwind CSS',
       icon: 'images/tailwindcss.svg',
     },
-    { id: 'skill-6', category: 'Outils & Languages', name: 'React JS', icon: 'images/react.svg' },
-    { id: 'skill-7', category: 'Outils & Languages', name: 'Angular', icon: 'images/angular.svg' },
-    { id: 'skill-8', category: 'Outils & Languages', name: 'Laravel', icon: 'images/laravel.svg' },
-    { id: 'skill-9', category: 'Outils & Languages', name: 'SQL', icon: 'images/sql.svg' },
-    { id: 'skill-10', category: 'Outils & Languages', name: 'SQLite', icon: 'images/sqlite.svg' },
-    { id: 'skill-11', category: 'Outils & Languages', name: 'Flutter', icon: 'images/flutter.svg' },
-    { id: 'skill-12', category: 'Outils & Languages', name: 'Swift UI', icon: 'images/swift.svg' },
-    { id: 'skill-13', category: 'Outils & Languages', name: 'Ionic', icon: 'images/ionic.svg' },
+    {
+      id: 'skill-4',
+      category: 'Front-End',
+      name: 'Bootstrap',
+      icon: 'images/bootstrap.svg',
+    },
+    // Back-end & BDD
+    {
+      id: 'skill-8',
+      category: 'Back-End & BDD',
+      name: 'Laravel',
+      icon: 'images/laravel.svg',
+    },
+    {
+      id: 'skill-2',
+      category: 'Back-End & BDD',
+      name: 'PHP',
+      icon: 'images/php.svg',
+    },
+    {
+      id: 'skill-3',
+      category: 'Back-End & BDD',
+      name: 'Java',
+      icon: 'images/java.svg',
+    },
+    {
+      id: 'skill-9',
+      category: 'Back-End & BDD',
+      name: 'SQL',
+      icon: 'images/sql.svg',
+    },
+    {
+      id: 'skill-10',
+      category: 'Back-End & BDD',
+      name: 'SQLite',
+      icon: 'images/sqlite.svg',
+    },
+    // Mobile
+    {
+      id: 'skill-11',
+      category: 'Mobile',
+      name: 'Flutter',
+      icon: 'images/flutter.svg',
+    },
+    {
+      id: 'skill-12',
+      category: 'Mobile',
+      name: 'Swift UI',
+      icon: 'images/swift.svg',
+    },
+    {
+      id: 'skill-13',
+      category: 'Mobile',
+      name: 'Ionic',
+      icon: 'images/ionic.svg',
+    },
+    // Outils & Design
+    {
+      id: 'skill-16',
+      category: 'Outils & Design',
+      name: 'Figma',
+      icon: 'images/figma.svg',
+    },
     {
       id: 'skill-14',
-      category: 'Outils & Languages',
+      category: 'Outils & Design',
       name: 'WordPress',
       icon: 'images/wordpress.svg',
     },
-    { id: 'skill-15', category: 'Outils & Languages', name: 'Moodle', icon: 'images/moodle.png' },
-    { id: 'skill-16', category: 'Outils & Languages', name: 'Figma', icon: 'images/figma.svg' },
+    {
+      id: 'skill-15',
+      category: 'Outils & Design',
+      name: 'Moodle',
+      icon: 'images/moodle.png',
+    },
   ];
 
   private languages: Language[] = [
@@ -234,6 +317,14 @@ export class Portfolio {
 
   getSoftSkills(): SoftSkill[] {
     return this.softSkills;
+  }
+
+  getDegrees(): Formation[] {
+    return this.formations.filter((f) => f.type === 'degree');
+  }
+
+  getCertificates(): Formation[] {
+    return this.formations.filter((f) => f.type === 'certificate');
   }
 
   getSkillsByCategory(category: string): Skill[] {

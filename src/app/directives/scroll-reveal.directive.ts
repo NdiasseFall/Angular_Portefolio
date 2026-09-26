@@ -24,6 +24,11 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
       this.renderer.setStyle(element, '--reveal-delay', `${this.revealDelay}ms`);
     }
 
+    if (typeof IntersectionObserver === 'undefined') {
+      this.renderer.addClass(element, 'scroll-reveal-visible');
+      return;
+    }
+
     this.observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

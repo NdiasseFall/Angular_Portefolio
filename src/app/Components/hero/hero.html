@@ -1,70 +1,101 @@
 <section
   id="home"
-  class="min-h-screen bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 flex items-center transition-colors"
+  class="relative min-h-[92vh] flex items-center justify-center bg-radial from-orange-500/5 via-transparent to-transparent bg-gray-50 dark:bg-gray-900/95 transition-colors py-16 lg:py-24"
 >
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="grid md:grid-cols-12 gap-12 items-center">
       <!-- Left content -->
-      <div class="flex flex-col justify-center">
-        <h1 class="hero-animate text-4xl md:text-5xl lg:text-6xl font-bold text-primary dark:text-white mb-4">
-          Bonjour, je suis Ndiasse Fall
-        </h1>
-        <h2 class="hero-animate hero-animate-delay-1 text-2xl md:text-3xl font-bold text-orange-500 mb-6">
-          Concepteur et développeur d'applications web & mobile
-        </h2>
-        <p class="hero-animate hero-animate-delay-2 text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-          Passionné d'informatique depuis mon plus jeune âge et aujourd'hui développeur web et
-          mobile, je conçois des solutions modernes, performantes et adaptées aux besoins réels.
-          Curieux et toujours en quête de nouveaux défis, je m'engage avec rigueur dans des projets
-          concrets et innovants.
-        </p>
-
-        <!-- Stats -->
-        <div class="hero-animate hero-animate-delay-3 grid grid-cols-3 gap-4 mb-8">
-          <div
-            class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm dark:shadow-md border border-gray-200 dark:border-gray-700"
-          >
-            <div class="text-3xl font-bold text-orange-500">L3</div>
-            <div class="text-gray-600 dark:text-gray-300 text-sm">Licence 3</div>
-          </div>
-          <div
-            class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm dark:shadow-md border border-gray-200 dark:border-gray-700"
-          >
-            <div class="text-3xl font-bold text-orange-500">3</div>
-            <div class="text-gray-600 dark:text-gray-300 text-sm">Engagements</div>
-          </div>
-          <div
-            class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm dark:shadow-md border border-gray-200 dark:border-gray-700"
-          >
-            <div class="text-3xl font-bold text-orange-500">15+</div>
-            <div class="text-gray-600 dark:text-gray-300 text-sm">Projets</div>
+      <div class="md:col-span-7 flex flex-col justify-center text-left">
+        <!-- Badge Disponibilité -->
+        <div class="hero-animate mb-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300 text-xs font-semibold shadow-xs">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span>Disponible pour nouveaux projets & opportunités</span>
           </div>
         </div>
 
-        <div class="hero-animate hero-animate-delay-4 flex gap-4">
-          <button
-            class="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-transparent hover:text-orange-500 hover:border hover:border-orange-500 transition-all duration-300 cursor-pointer"
+        <h1 class="hero-animate hero-animate-delay-1 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight leading-tight">
+          Bonjour, je suis <span class="text-orange-500">Ndiasse Fall</span>
+        </h1>
+
+        <h2 class="hero-animate hero-animate-delay-1 text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-6">
+          Concepteur et développeur d'applications Web & Mobile
+        </h2>
+
+        <p class="hero-animate hero-animate-delay-2 text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed max-w-xl">
+          Passionné par les technologies modernes et l'expérience utilisateur, je conçois et développe des solutions logicielles complètes, performantes et scalables, du design à la mise en production.
+        </p>
+
+        <!-- Stats Grid -->
+        <div class="hero-animate hero-animate-delay-3 grid grid-cols-3 gap-3 sm:gap-4 mb-8 max-w-lg">
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700/80 text-center sm:text-left">
+            <div class="text-2xl sm:text-3xl font-extrabold text-orange-500">L3</div>
+            <div class="text-gray-600 dark:text-gray-400 text-xs sm:text-sm font-medium">Informatique</div>
+          </div>
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700/80 text-center sm:text-left">
+            <div class="text-2xl sm:text-3xl font-extrabold text-orange-500">3</div>
+            <div class="text-gray-600 dark:text-gray-400 text-xs sm:text-sm font-medium">Engagements</div>
+          </div>
+          <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xs border border-gray-200 dark:border-gray-700/80 text-center sm:text-left">
+            <div class="text-2xl sm:text-3xl font-extrabold text-orange-500">15+</div>
+            <div class="text-gray-600 dark:text-gray-400 text-xs sm:text-sm font-medium">Projets réalisés</div>
+          </div>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="hero-animate hero-animate-delay-4 flex flex-wrap gap-4 items-center">
+          <a
+            href="#contact"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-orange-500 text-white font-medium rounded-xl hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 cursor-pointer text-sm sm:text-base focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
           >
-            Me contacter
-          </button>
-          <button
-            class="px-6 py-3 border border-orange-500 text-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition-all duration-300 cursor-pointer"
+            <span>Me contacter</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <a
+            href="CV_Ndiasse_Fall.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 border-2 border-gray-300 dark:border-gray-700 text-slate-900 dark:text-white font-medium rounded-xl hover:border-orange-500 hover:text-orange-500 dark:hover:border-orange-500 dark:hover:text-orange-400 transition-all duration-300 cursor-pointer text-sm sm:text-base focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
           >
-            Voir mon CV
-          </button>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>Voir mon CV</span>
+          </a>
         </div>
       </div>
 
-      <!-- Right image -->
-      <div class="hidden md:flex justify-center hero-animate-image">
-        <div class="w-96 h-96 rounded-lg shadow-lg overflow-hidden">
-          <div
-            class="w-full h-full bg-linear-to-br from-blue-100 to-cyan-100 flex items-center justify-center"
-          >
-            <img src="images/img.jpeg" alt="Profile Image" />
+      <!-- Right image (Visible on both mobile & desktop) -->
+      <div class="md:col-span-5 flex justify-center hero-animate-image">
+        <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+          <!-- Subtle glow ring -->
+          <div class="absolute -inset-2 rounded-3xl bg-linear-to-tr from-orange-500 to-amber-400 opacity-20 blur-lg"></div>
+          <div class="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800 bg-gray-100 dark:bg-gray-800">
+            <img
+              src="images/img.jpeg"
+              alt="Photo de profil de Ndiasse Fall, Développeur Web et Mobile"
+              class="w-full h-full object-cover object-center"
+            />
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Discrete scroll indicator -->
+  <a
+    href="#about"
+    aria-label="Faire défiler vers la section À propos"
+    class="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center text-gray-400 hover:text-orange-500 transition-colors"
+  >
+    <span class="text-xs font-medium tracking-widest uppercase mb-1">Découvrir</span>
+    <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </a>
 </section>

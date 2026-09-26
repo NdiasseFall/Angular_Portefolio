@@ -1,14 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Portfolio } from '../../services/portfolio';
-import { AsyncPipe } from '@angular/common';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { Projet as ProjetModel } from '../../models';
 
 @Component({
   selector: 'app-projet',
-  imports: [AsyncPipe, ScrollRevealDirective],
+  imports: [ScrollRevealDirective],
   templateUrl: './projet.html',
   styleUrl: './projet.css',
 })
 export class Projet {
-   constructor(public service: Portfolio) {}
+  public service = inject(Portfolio);
+
+  selectedFilter = signal<string>('Tous');
+  readonly categories = ['Tous', 'Web', 'UI/UX'];
+
+  filteredProjects(): ProjetModel[] {
+    const all = this.service.getProjets();
+    const filter = this.selectedFilter();
+    if (filter === 'Tous') {
+      return all;
+    }
+    return all.filter((p) => p.category === filter);
+  }
+
+  setFilter(category: string): void {
+    this.selectedFilter.set(category);
+  }
 }

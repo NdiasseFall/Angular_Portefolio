@@ -1,27 +1,31 @@
-import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, inject, signal } from '@angular/core';
 import { ThemeToggle } from '../theme-toggle';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [ThemeToggle, RouterModule],
+  imports: [ThemeToggle],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {
+export class Header implements OnInit {
   private elementRef = inject(ElementRef);
 
   menuOpen = signal(false);
+  activeSection = signal('home');
 
   readonly navLinks = [
-    { href: '/home', label: 'Accueil' },
-    { href: '/about', label: 'À propos' },
-    { href: '/education', label: 'Formation' },
-    { href: '/skills', label: 'Compétences' },
-    { href: '/experience', label: 'Expérience' },
-    { href: '/projects', label: 'Projets' },
-    { href: '/contact', label: 'Contact' },
+    { id: 'home', href: '#home', label: 'Accueil' },
+    { id: 'about', href: '#about', label: 'À propos' },
+    { id: 'formation', href: '#formation', label: 'Formation' },
+    { id: 'skills', href: '#skills', label: 'Compétences' },
+    { id: 'experience', href: '#experience', label: 'Expérience' },
+    { id: 'projects', href: '#projects', label: 'Projets' },
+    { id: 'contact', href: '#contact', label: 'Contact' },
   ];
+
+  ngOnInit(): void {
+    this.updateActiveSection();
+  }
 
   toggleMenu(): void {
     this.menuOpen.update((open) => !open);
@@ -29,6 +33,43 @@ export class Header {
 
   closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  scrollToSection(event: Event, targetId: string): void {
+    event.preventDefault();
+    this.closeMenu();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const headerOffset = 70;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+      this.activeSection.set(targetId);
+    }
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.updateActiveSection();
+  }
+
+  private updateActiveSection(): void {
+    const scrollPosition = window.pageYOffset + 120;
+    for (const link of this.navLinks) {
+      const element = document.getElementById(link.id);
+      if (element) {
+        const top = element.offsetTop;
+        const height = element.offsetHeight;
+        if (scrollPosition >= top && scrollPosition < top + height) {
+          this.activeSection.set(link.id);
+          break;
+        }
+      }
+    }
   }
 
   @HostListener('document:keydown.escape')
