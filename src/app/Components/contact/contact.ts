@@ -1,14 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { ToastService } from '../../services/toast.service';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })
@@ -17,7 +15,12 @@ export class ContactComponent {
   private toastService = inject(ToastService);
 
   contactForm: FormGroup;
-  isSubmitting = false;
+  /**
+   * Signal (and not a plain property) so the submit button state is reflected
+   * in the template: Angular 21 runs zoneless by default, so mutations
+   * performed inside `setTimeout`/Promise callbacks are not detected.
+   */
+  isSubmitting = signal(false);
 
   constructor() {
     this.contactForm = this.fb.group({
@@ -40,7 +43,7 @@ export class ContactComponent {
       return;
     }
 
-    this.isSubmitting = true;
+    this.isSubmitting.set(true);
 
     const formData = this.contactForm.value;
 
@@ -53,7 +56,7 @@ export class ContactComponent {
     if (SERVICE_ID.includes('xxxxxxxx')) {
       // Simulation gracieuse en mode développement
       setTimeout(() => {
-        this.isSubmitting = false;
+        this.isSubmitting.set(false);
         this.contactForm.reset();
         this.contactForm.markAsPristine();
         this.contactForm.markAsUntouched();
@@ -79,7 +82,7 @@ export class ContactComponent {
       )
       .then(
         (result: EmailJSResponseStatus) => {
-          this.isSubmitting = false;
+          this.isSubmitting.set(false);
           this.contactForm.reset();
           this.contactForm.markAsPristine();
           this.contactForm.markAsUntouched();
@@ -88,7 +91,7 @@ export class ContactComponent {
           );
         },
         (error) => {
-          this.isSubmitting = false;
+          this.isSubmitting.set(false);
           console.error('EmailJS error:', error);
           this.toastService.showError(
             "Erreur lors de l'envoi du message. Veuillez réessayer."

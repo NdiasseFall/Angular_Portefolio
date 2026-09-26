@@ -21,24 +21,11 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/**",
-          "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
+          "/images/**",
+          "/CV_Ndiasse_Fall.pdf"
         ]
       }
     }
   ],
-  "dataGroups": [
-    {
-      "name": "api-performance",
-      "urls": [
-        "/**"
-      ],
-      "cacheConfig": {
-        "maxSize": 100,
-        "maxAge": "3d",
-        "timeout": "5s",
-        "strategy": "performance"
-      }
-    }
-  ]
+  "dataGroups": []
 }
