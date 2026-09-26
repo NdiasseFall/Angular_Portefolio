@@ -36,6 +36,30 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
+## Static assets (`public/`)
+
+Every file in `public/` is copied as-is to the root of the build output:
+
+- `public/CV_Ndiasse_Fall.pdf` — the CV downloaded from the Hero section. **Replace it with the final designed CV**: the committed file is generated from the portfolio data so the link never returns a 404.
+- `public/images/` — technology logos, project screenshots and the PWA icons (`icon-192.png`, `icon-512.png`, both square PNGs).
+- `public/manifest.json` — PWA manifest (name, theme colors, icons).
+
+## Progressive Web App
+
+The Angular service worker is generated at build time from `src/ngsw-config.json`
+(exposed through the `serviceWorker` build option of `angular.json`) and is only
+registered in production, because `provideServiceWorker()` reads
+`environment.production`, which the `production` configuration flips through
+`fileReplacements`.
+
+To verify the PWA locally, serve a production build: `ng serve` uses the
+development configuration and therefore never registers the worker.
+
+```bash
+ng build
+npx http-server dist/portfolio/browser -p 8080
+```
+
 ## Running unit tests
 
 To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
@@ -43,6 +67,11 @@ To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use th
 ```bash
 ng test
 ```
+
+Tests run in a jsdom environment. `src/test-setup.ts` is registered through the
+`setupFiles` option of the `test` target in `angular.json` and polyfills the jsdom
+APIs the application relies on (currently `window.matchMedia`, used by
+`ThemeService`).
 
 ## Running end-to-end tests
 
